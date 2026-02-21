@@ -40,7 +40,6 @@ public class teleop extends OpMode {
     public static double gateOpenPos   = 0.03;
 
     public static double P = 0 ,kV = 0,kS = 0;
-    private Limelight3A limelight;
 
     @Override
     public void init() {
