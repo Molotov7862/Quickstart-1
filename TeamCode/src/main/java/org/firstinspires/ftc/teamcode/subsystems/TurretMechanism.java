@@ -122,7 +122,7 @@ public class TurretMechanism {
         if (position < -limit && power < 0) {
             power = 0;
         }
-
+        telemetry.addData("TargetVel", targetVelocity);
         turret.setPower(power);
 
         lastError = error;
