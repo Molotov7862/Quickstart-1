@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
+import com.bylazar.configurables.annotations.Configurable;
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -9,7 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-
+@Configurable
 public class TurretMechanism {
 
     private DcMotorEx turret;
@@ -17,8 +18,8 @@ public class TurretMechanism {
 
 
     // remember to tune all of this :)
-    private double kP = 0.0001;
-    private double kD = 0.0001;
+    public static double kP = 0.0001;
+    public static double kD = 0.0001;
 
     private double lastError = 0;
     private double angleTolerance = 1;
