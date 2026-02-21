@@ -20,7 +20,7 @@ public class TurretMechanism {
 
 
     // remember to tune all of this :)
-    public static double kP = 0.0001;
+    public static double kP = 0.042;
     public static double kD = 0.0001;
 
     private double lastError = 0;
@@ -32,8 +32,8 @@ public class TurretMechanism {
     private final ElapsedTime timer = new ElapsedTime();
 
 
-    private final int LEFT_LIMIT = -600;
-    private final int RIGHT_LIMIT = 600;
+    public static int LEFT_LIMIT = -600;
+    public static int RIGHT_LIMIT = 600;
 
 
     public void init(HardwareMap hwMap, Telemetry telemetry) {
@@ -133,7 +133,6 @@ public class TurretMechanism {
         if (position < LEFT_LIMIT && power < 0) {
             power = 0;
         }
-        telemetry.addData("Pos", position);
 
         turret.setPower(power);
 

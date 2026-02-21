@@ -63,6 +63,8 @@ public class turretTest extends OpMode {
         double y = -gamepad1.left_stick_y; // Remember, Y stick value is reversed
         double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
         double rx = gamepad1.right_stick_x;
+
+
         lastB = gamepad1.b;
         lastUp = gamepad1.dpad_up;
         lastDown = gamepad1.dpad_down;

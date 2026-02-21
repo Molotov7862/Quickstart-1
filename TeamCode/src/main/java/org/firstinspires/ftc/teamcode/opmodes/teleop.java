@@ -39,10 +39,12 @@ public class teleop extends OpMode {
     public static double gateClosedPos = 0.15;
     public static double gateOpenPos   = 0.03;
 
-    public static double P = 0 ,kV = 0,kS = 0;
+    public static double P = 0 ,kV = 0,kS = 0.064;
 
     @Override
     public void init() {
+        new  panelsTelemetry = PanelsTelemetry.telemetry();
+
         turret.init(hardwareMap, telemetry);
         frontLeftMotor  = hardwareMap.get(DcMotorEx.class, "frontLeft");
         frontRightMotor = hardwareMap.get(DcMotorEx.class, "frontRight");
@@ -128,7 +130,6 @@ public class teleop extends OpMode {
             rightmotor.setPower(0);
             leftmotor.setPower(0);
         }
-        turret.update(true);
 
 
 
@@ -148,6 +149,7 @@ public class teleop extends OpMode {
 
         telemetry.addData("Mode", farOn ? "FAR" : closeOn ? "CLOSE" : "OFF");
         telemetry.addData("GateOpen", gateOpen);
+        turret.update(true);
 
         telemetry.update();
     }
