@@ -34,6 +34,7 @@ public class TurretMechanism {
 
 
     public void init(HardwareMap hwMap, Telemetry telemetry) {
+        limelight.start();
 
         turret = hwMap.get(DcMotorEx.class, "turret");
 
@@ -49,7 +50,6 @@ public class TurretMechanism {
         telemetry.addData("turretPwr", power);
         telemetry.addData("tx", limelight.getLatestResult().getTx());
         limelight.pipelineSwitch(0);
-        limelight.start();
 
 
         timer.reset();
