@@ -77,6 +77,8 @@ public class turretTest extends OpMode {
         telemetry.addLine("-------------------");
         telemetry.addData("P Gain", "%.5f", turret.getKP());
         telemetry.addData("D Gain", "%.5f", turret.getKD());
+
+
         telemetry.update();
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
         double frontLeftPower = (y + x + rx) / denominator;

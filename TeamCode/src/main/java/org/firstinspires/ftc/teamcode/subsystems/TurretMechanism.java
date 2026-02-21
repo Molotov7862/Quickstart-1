@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 import com.bylazar.configurables.annotations.Configurable;
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
@@ -113,8 +115,7 @@ public class TurretMechanism {
                 power = 0;
         }
         else{
-            power = Range.clip(pTerm + dTerm, -MAX_POWER, MAX_POWER);
-
+            power = Range.clip(-(pTerm + dTerm), -MAX_POWER, MAX_POWER);
         }
         // Proportional term
 
@@ -132,6 +133,7 @@ public class TurretMechanism {
         if (position < LEFT_LIMIT && power < 0) {
             power = 0;
         }
+        telemetry.addData("Pos", position);
 
         turret.setPower(power);
 
