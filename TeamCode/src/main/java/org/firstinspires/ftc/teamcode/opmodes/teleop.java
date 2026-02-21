@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
+import com.bylazar.configurables.annotations.Configurable;
 
 import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -8,9 +9,9 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.classes.TurretMechanism;
+import org.firstinspires.ftc.teamcode.subsystems.TurretMechanism;
 
-@Config
+@Configurable
 @TeleOp(name="Teleop")
 public class teleop extends OpMode {
 
@@ -75,7 +76,6 @@ public class teleop extends OpMode {
         frontRightMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
         backRightMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
-        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
         gate.setPosition(gateClosedPos);
     }
 
@@ -142,7 +142,6 @@ public class teleop extends OpMode {
         }
 
 
-        turret.update(true);
 
 
         telemetry.addData("TargetVel", targetVelocity);
@@ -165,10 +164,10 @@ public class teleop extends OpMode {
         double frontRightPower = (y - x - rx) / denominator;
         double backRightPower  = (y + x - rx) / denominator;
 
-        frontLeftMotor.setPower(frontLeftPower);
-        backLeftMotor.setPower(backLeftPower);
-        frontRightMotor.setPower(frontRightPower);
-        backRightMotor.setPower(backRightPower);
+        frontLeftMotor.setPower(-frontLeftPower);
+        backLeftMotor.setPower(-backLeftPower);
+        frontRightMotor.setPower(-frontRightPower);
+        backRightMotor.setPower(-backRightPower);
     }
     private void initHardware() {
 
