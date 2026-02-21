@@ -4,6 +4,7 @@ import com.bylazar.configurables.annotations.Configurable;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.subsystems.TurretMechanism;
 @Configurable
@@ -28,6 +29,9 @@ public class turretTest extends OpMode {
         frontRightMotor = hardwareMap.get(DcMotorEx.class, "frontRight");
         backRightMotor = hardwareMap.get(DcMotorEx.class, "backRight");
         backLeftMotor = hardwareMap.get(DcMotorEx.class, "backLeft");
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+
     }
 
     @Override
