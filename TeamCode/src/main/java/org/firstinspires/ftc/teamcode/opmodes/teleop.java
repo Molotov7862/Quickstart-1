@@ -43,7 +43,7 @@ public class teleop extends OpMode {
     public static double gateOpenPos   = 0.03;
     private com.bylazar.telemetry.TelemetryManager panelsTelemetry = PanelsTelemetry.INSTANCE.getTelemetry();
 
-    public static double P = 0 ,kV = 0,kS = 0.064;
+    public static double P = 0.01 ,kV = 0.000364,kS = 0.064;
 
     @Override
     public void init() {
